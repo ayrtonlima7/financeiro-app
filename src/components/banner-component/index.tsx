@@ -1,21 +1,15 @@
 import {StyleSheet, Text, View} from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import {RFValue} from "react-native-responsive-fontsize";
 
 
 export const BannerComponent = () => {
     return (
-        <LinearGradient
-            colors={['#c94700', '#e75100', '#ff610b', '#ff6e1f', '#ff7c35']}
-            style={styles.banner}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 1}}
-        >
+        <View style={styles.banner}>
             <View style={styles.circle}>
                 <Text allowFontScaling={false} style={styles.fBox}>F</Text>
             </View>
             <Text allowFontScaling={false} style={styles.text}>Financeiro</Text>
-        </LinearGradient>
+        </View>
     )
 }
 
@@ -24,6 +18,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#e75100',
         gap: 12,
         height: RFValue(232),
     },
