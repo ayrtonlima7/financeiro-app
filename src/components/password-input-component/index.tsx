@@ -5,11 +5,16 @@ import React, {useState} from "react";
 interface PasswordInputComponentProps {
     label?: string
     style?: ViewStyle
+    value?: string
+    setUser?: any
+    user?: any
 }
 
-export const PasswordInputComponent = ({label, style}: PasswordInputComponentProps) => {
+export const PasswordInputComponent = ({label, style, value, setUser, user}: PasswordInputComponentProps) => {
     const [hidePassword, setHidePassword] = useState(false)
-
+    const handleChange = (text: string) => {
+        setUser({...user, password: text})
+    }
     return (
         <View style={[{
             backgroundColor: 'rgba(0,0,0,0.1)',
@@ -20,6 +25,8 @@ export const PasswordInputComponent = ({label, style}: PasswordInputComponentPro
         }, style]}>
             <TextInput
                 numberOfLines={1}
+                value={value}
+                onChangeText={handleChange}
                 allowFontScaling={false}
                 autoCapitalize='none'
                 secureTextEntry={hidePassword}

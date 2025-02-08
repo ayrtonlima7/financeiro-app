@@ -5,12 +5,21 @@ interface InputComponentProps {
     style?: TextStyle
     secureTextEntry?: boolean
     autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters'
+    value?: string
+    setUser?: any
+    user?: any
 }
 
-export const InputComponent = ({label, style, secureTextEntry, autoCapitalize}: InputComponentProps) => {
+export const InputComponent = ({label, style, secureTextEntry, autoCapitalize, value,user, setUser}: InputComponentProps) => {
+    const handleChange = (text: string) => {
+        setUser({...user, email: text})
+    }
+
     return (
         <TextInput
             allowFontScaling={false}
+            value={value}
+            onChangeText={handleChange}
             autoCapitalize={autoCapitalize}
             secureTextEntry={secureTextEntry}
             numberOfLines={1}
