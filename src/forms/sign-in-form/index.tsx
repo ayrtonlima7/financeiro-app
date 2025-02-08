@@ -6,22 +6,22 @@ import {PasswordInputComponent} from "../../components/password-input-component"
 import {RFValue} from "react-native-responsive-fontsize";
 import {useNavigation} from "@react-navigation/native";
 import {api} from "../../services/api";
-import {UserLoginInterface} from "../../interfaces/user-login-interface";
+import {UserSignInInterface} from "../../interfaces/user-sign-in-interface";
 import {AppContext} from "../../contexts/app-context";
 
 
 
 export const SignInForm = () => {
     const navigation = useNavigation<any>()
-    const {logged, setLogged} = useContext(AppContext)
-    const [user, setUser]= useState<UserLoginInterface>({
+    const {setLogged} = useContext(AppContext)
+    const [user, setUser]= useState<UserSignInInterface>({
         email: '',
         password: '',
     })
     return (
         <View style={{width: '60%', marginTop: RFValue(32)}}>
             <Text allowFontScaling={false} style={styles.text}>E-mail</Text>
-            <InputComponent value={user.email} user={user} setUser={setUser} autoCapitalize={'none'} label={"Digite seu e-mail"}/>
+            <InputComponent type={'email'} value={user.email} user={user} setUser={setUser} autoCapitalize={'none'} label={"Digite seu e-mail"}/>
             <Text allowFontScaling={false} style={styles.text}>Senha</Text>
             <PasswordInputComponent value={user.password} user={user} setUser={setUser} style={{marginBottom: RFValue(32)}} label={'Digite sua senha'}/>
             <View style={{alignItems: 'center'}}>
@@ -29,18 +29,14 @@ export const SignInForm = () => {
                     title={"Entrar"}
                     onPress={async () => {
                         try {
-                            console.log(user)
                             const response = await api.post('/sign-in/admin', user).then(response => response).catch(e => e)
                             if (response.data.accessToken) {
                                 setLogged(true)
-                                console.log(logged)
-                                console.log(response.data)
                                 alert("Logado com sucesso")
-                            } else {
-                                alert("Usuário ou senha inválidos")
                             }
                         } catch (e: any) {
-                            console.log(e)
+                            alert("Usuário ou senha inválidos")
+
                         }
                     }}
                 />

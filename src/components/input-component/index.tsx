@@ -8,11 +8,17 @@ interface InputComponentProps {
     value?: string
     setUser?: any
     user?: any
+    type?: string
 }
 
-export const InputComponent = ({label, style, secureTextEntry, autoCapitalize, value,user, setUser}: InputComponentProps) => {
+export const InputComponent = ({label, style, secureTextEntry, autoCapitalize, value,user, setUser, type}: InputComponentProps) => {
     const handleChange = (text: string) => {
-        setUser({...user, email: text})
+        if (type === 'email') {
+            return setUser({...user, email: text})
+        }
+        if (type === 'name') {
+            return setUser({...user, name: text})
+        }
     }
 
     return (

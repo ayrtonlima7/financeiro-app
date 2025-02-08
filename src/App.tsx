@@ -20,8 +20,8 @@ export default function App() {
                     <StatusBar translucent={true} backgroundColor="transparent"/>
                     {logged ? (
                         <Stack.Navigator screenOptions={{headerShown: false}}>
-                            <Stack.Screen name="MyRegister" component={MyRegisterScreen}/>
                             <Stack.Screen name="Home" component={HomeScreen}/>
+                            <Stack.Screen name="MyRegister" component={MyRegisterScreen}/>
                         </Stack.Navigator>
                     ) : (
                         <Stack.Navigator screenOptions={{headerShown: false}}>

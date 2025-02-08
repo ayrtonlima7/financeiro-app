@@ -6,7 +6,7 @@ import {SignUpForm} from "../../forms/sign-up-form";
 import {RFValue} from "react-native-responsive-fontsize";
 
 export const SignUpScreen = () => {
-    const navigation = useNavigation()
+    const navigation = useNavigation<any>()
     return (
         <>
             <BannerComponent/>
@@ -14,7 +14,6 @@ export const SignUpScreen = () => {
                 <SignUpForm/>
             </View>
             <View style={{alignItems: 'center'}}>
-                <ButtonComponent title='Criar conta'/>
                 <View style={{flexDirection: 'row', gap: 8}}>
                     <Text style={{fontSize: RFValue(12)}}>Já possui conta?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
