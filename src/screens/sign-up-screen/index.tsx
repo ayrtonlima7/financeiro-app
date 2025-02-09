@@ -1,4 +1,3 @@
-import {ButtonComponent} from "../../components/button-component";
 import {BannerComponent} from "../../components/banner-component";
 import {useNavigation} from "@react-navigation/native";
 import {View, Text, TouchableOpacity} from "react-native";

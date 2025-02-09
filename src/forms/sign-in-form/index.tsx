@@ -26,6 +26,7 @@ export const SignInForm = () => {
             <PasswordInputComponent value={user.password} user={user} setUser={setUser} style={{marginBottom: RFValue(32)}} label={'Digite sua senha'}/>
             <View style={{alignItems: 'center'}}>
                 <ButtonComponent
+                    viewStyle={{marginBottom: RFValue(24)}}
                     title={"Entrar"}
                     onPress={async () => {
                         try {
@@ -41,7 +42,7 @@ export const SignInForm = () => {
                     }}
                 />
                 <Text allowFontScaling={false} style={{marginBottom: RFValue(24), fontSize: RFValue(12)}}>Ainda não possui conta?</Text>
-                <ButtonComponent onPress={() => navigation.navigate("SignUp")} title={"Cadastrar"}/>
+                <ButtonComponent onPress={() => navigation.navigate("SignUp")} title={"Cadastrar"} viewStyle={{marginBottom: RFValue(24)}}/>
             </View>
         </View>
     )

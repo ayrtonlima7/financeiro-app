@@ -25,11 +25,12 @@ export const SignUpForm = () => {
                 </View>
             </View>
             <Text style={styles.text}>E-mail</Text>
-            <InputComponent type={'email'} value={user.email} user={user} setUser={setUser}autoCapitalize={'none'} style={{width: '65%'}}/>
+            <InputComponent type={'email'} value={user.email} user={user} setUser={setUser} autoCapitalize={'none'} style={{width: '65%'}}/>
             <Text style={styles.text}>Senha</Text>
             <PasswordInputComponent value={user.password} user={user} setUser={setUser} style={{width: '65%', marginBottom: RFValue(8)}}/>
             <View style={{width: '100%', alignItems: 'center'}}>
                 <ButtonComponent
+                    viewStyle={{marginBottom: RFValue(24)}}
                     title='Criar conta'
                     onPress={async () => {
                         try {

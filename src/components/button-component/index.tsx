@@ -1,17 +1,18 @@
-import {TouchableOpacity, ViewStyle, StyleSheet, Text} from "react-native";
+import {TouchableOpacity, ViewStyle, StyleSheet, Text, TextStyle} from "react-native";
 import {RFValue} from "react-native-responsive-fontsize";
 
 interface ButtonComponentProps {
     title?: string
     onPress?: () => void
-    style?: ViewStyle
+    viewStyle?: ViewStyle
+    textStyle?: TextStyle
 }
 
-export const ButtonComponent = ({title, onPress, style}: ButtonComponentProps) => {
+export const ButtonComponent = ({title, onPress, viewStyle, textStyle}: ButtonComponentProps) => {
 
     return (
-        <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
-            <Text allowFontScaling={false} style={[styles.text, style]}>{title}</Text>
+        <TouchableOpacity style={[styles.container, viewStyle]} onPress={onPress}>
+            <Text allowFontScaling={false} style={[styles.text, textStyle]}>{title}</Text>
         </TouchableOpacity>
     )
 }
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
         width: RFValue(124),
         height: RFValue(32),
         borderRadius: 4,
-        marginBottom: RFValue(24)
     },
     text: {
         color: 'white',

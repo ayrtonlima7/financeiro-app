@@ -1,15 +1,26 @@
 import {View, Text} from "react-native";
-import {RFValue} from "react-native-responsive-fontsize";
 
 export const MyRegisterForm = () => {
     return (
-        <View style={{width: '75%', marginTop: RFValue(32)}}>
-            <Text style={{
-                marginBottom: RFValue(24),
-                fontSize: RFValue(20),
-                fontWeight: '800',
-                color: '#e75100'
-            }}>Meus registros</Text>
+        <View style={{width: '95%'}}>
+            <View style={{
+                flexDirection: 'row',
+                margin: '4%',
+                height: '40%',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+            }}>
+                <View>
+                    <Text>Circle</Text>
+                </View>
+                <View style={{justifyContent: 'space-between'}}>
+                    <Text>Título Categoria</Text>
+                    <Text>Valor</Text>
+                </View>
+                <View>
+                    <Text>Data</Text>
+                </View>
+            </View>
         </View>
     )
 }

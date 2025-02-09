@@ -1,24 +1,13 @@
-import {View, StyleSheet, TextInput, Image, ScrollView, Text, TouchableOpacity, Button} from "react-native";
+import {ButtonComponent} from "../../components/button-component";
+import {useNavigation} from "@react-navigation/native";
 import {RFValue} from "react-native-responsive-fontsize";
-import {HomeForm} from "../../forms/home-form";
-import {BannerComponent} from "../../components/banner-component";
-import {AppContext} from "../../contexts/app-context";
-import {useContext} from "react";
-
 
 export const HomeScreen = () => {
-    const {setLogged} = useContext(AppContext)
+    const navigation = useNavigation()
 
     return (
         <>
-            <BannerComponent/>
-            <View style={{alignItems: 'center'}}>
-                <HomeForm/>
-                <Button title={'logout'} onPress={() => setLogged(false)}/>
-            </View>
-
+            <ButtonComponent viewStyle={{marginBottom: RFValue(24)}} title={'Voltar'} onPress={() => {navigation.navigate('MyRegister')}} />
         </>
     )
 }
-
-const styles = StyleSheet.create({})

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 12,
         backgroundColor: '#e75100',
-        height: RFValue(232),
+        height: '30%',
     },
     circle: {
         borderRadius: '100%',
