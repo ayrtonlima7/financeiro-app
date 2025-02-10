@@ -14,8 +14,8 @@ export interface TransactionProps {
 export const TransactionInitialState: TransactionProps = {
     value: 0,
     date: '',
-    category: '',
-    origin: '',
+    category: 'Salário',
+    origin: 'Income',
     created_at: '09/02/2025',
     updated_at: '09/02/2025',
     user_id: 1
@@ -24,6 +24,6 @@ export const TransactionInitialState: TransactionProps = {
 
 export const TransactionContext = createContext({
     transaction: TransactionInitialState,
-    setTransaction: () => {}
+    setTransaction: (transaction: TransactionProps) => {}
 
 })

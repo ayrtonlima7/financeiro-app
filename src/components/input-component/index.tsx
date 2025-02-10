@@ -27,7 +27,7 @@ export const InputComponent = ({label, style, secureTextEntry, autoCapitalize, v
             return setTransaction({...transaction, date: text})
         }
         if (type === 'transaction-value') {
-            return setTransaction({...transaction, value: parseFloat(text)})
+            return setTransaction({...transaction, value: parseInt(text)})
         }
     }
 
