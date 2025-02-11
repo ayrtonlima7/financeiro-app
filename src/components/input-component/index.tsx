@@ -1,11 +1,9 @@
-import {TextStyle, StyleSheet, TextInput} from "react-native";
+import {StyleSheet, TextInput} from "react-native";
 import {RFValue} from "react-native-responsive-fontsize";
-import { TransactionProps } from "../../contexts/transaction-context";
 
 interface InputComponentProps {
     label?: string
-    style?: string
-    secureTextEntry?: boolean
+    placeholderStyle?: string
     autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters'
     value?: string
     setUser?: any
@@ -15,7 +13,17 @@ interface InputComponentProps {
     setTransaction?: any
 }
 
-export const InputComponent = ({label, style, secureTextEntry, autoCapitalize, value,user, setUser, type, transaction, setTransaction}: InputComponentProps) => {
+export const InputComponent = ({
+                                   label,
+                                   placeholderStyle,
+                                   autoCapitalize,
+                                   value,
+                                   user,
+                                   setUser,
+                                   type,
+                                   transaction,
+                                   setTransaction
+                               }: InputComponentProps) => {
     const handleChange = (text: string) => {
         if (type === 'email') {
             return setUser({...user, email: text})
@@ -37,17 +45,16 @@ export const InputComponent = ({label, style, secureTextEntry, autoCapitalize, v
             value={value}
             onChangeText={handleChange}
             autoCapitalize={autoCapitalize}
-            secureTextEntry={secureTextEntry}
             numberOfLines={1}
             placeholder={label}
-            placeholderTextColor={style}
-            style={[styles.placeholder]}>
+            placeholderTextColor={placeholderStyle}
+            style={[styles.container]}>
         </TextInput>
     )
 }
 
 const styles = StyleSheet.create({
-    placeholder: {
+    container: {
         backgroundColor: 'rgba(0,0,0,0.1)',
         borderRadius: 4,
         paddingHorizontal: RFValue(8),

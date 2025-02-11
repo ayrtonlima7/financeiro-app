@@ -11,7 +11,7 @@ interface PasswordInputComponentProps {
 }
 
 export const PasswordInputComponent = ({label, style, value, setUser, user}: PasswordInputComponentProps) => {
-    const [hidePassword, setHidePassword] = useState(false)
+    const [hidePassword, setHidePassword] = useState(true)
     const handleChange = (text: string) => {
         setUser({...user, password: text})
     }
