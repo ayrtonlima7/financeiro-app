@@ -1,4 +1,4 @@
-import {StyleSheet, TextInput} from "react-native";
+import {StyleSheet, TextInput, ViewStyle} from "react-native";
 import {RFValue} from "react-native-responsive-fontsize";
 
 interface InputComponentProps {
@@ -11,6 +11,8 @@ interface InputComponentProps {
     type?: string
     transaction?: any
     setTransaction?: any
+    style?: ViewStyle
+    keyboardType?: 'default' | 'number-pad' | 'decimal-pad' | 'numeric' | 'email-address' | 'phone-pad'
 }
 
 export const InputComponent = ({
@@ -22,7 +24,9 @@ export const InputComponent = ({
                                    setUser,
                                    type,
                                    transaction,
-                                   setTransaction
+                                   setTransaction,
+                                   style,
+                                   keyboardType
                                }: InputComponentProps) => {
     const handleChange = (text: string) => {
         if (type === 'email') {
@@ -41,6 +45,7 @@ export const InputComponent = ({
 
     return (
         <TextInput
+            keyboardType={keyboardType}
             allowFontScaling={false}
             value={value}
             onChangeText={handleChange}
@@ -48,7 +53,8 @@ export const InputComponent = ({
             numberOfLines={1}
             placeholder={label}
             placeholderTextColor={placeholderStyle}
-            style={[styles.container]}>
+            style={[styles.container, style]}
+        >
         </TextInput>
     )
 }

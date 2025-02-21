@@ -1,16 +1,19 @@
 import {Button, View} from "react-native"
 import {useContext} from "react";
 import {AppContext} from "../../contexts/app-context";
-import {MyRegisterForm} from "../../forms/my-register-form";
+import {CreateTransactionForm} from "../../forms/create-transaction-form-component";
+
 
 
 export const MyRegisterScreen = () => {
     const {setLogged} = useContext(AppContext)
 
     return (
-            <View style={{alignItems: 'center'}}>
-                <MyRegisterForm/>
+        <>
+            <CreateTransactionForm />
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
                 <Button title={'logout'} onPress={() => setLogged(false)}/>
             </View>
+        </>
     )
 }

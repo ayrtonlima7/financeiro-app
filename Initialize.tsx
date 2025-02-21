@@ -7,11 +7,10 @@ import {Auth} from "./Auth";
 import App from "./App";
 import {TransactionContext, TransactionInitialState} from './src/contexts/transaction-context';
 import {AuthBannerComponent} from "./src/components/auth-banner-component";
-import {AppBannerComponent} from './src/components/app-banner-component';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 export default function Initialize() {
-    const [logged, setLogged] = useState(false)
+    const [logged, setLogged] = useState(true)
     const [transaction, setTransaction] = useState(TransactionInitialState)
 
     return (
@@ -21,10 +20,7 @@ export default function Initialize() {
                     <TransactionContext.Provider value={{transaction, setTransaction}}>
                         <StatusBar translucent={true} backgroundColor="transparent"/>
                         {logged ? (
-                            <>
-                                <AppBannerComponent/>
-                                <App/>
-                            </>
+                            <App/>
                         ) : (
                             <>
                                 <AuthBannerComponent/>
