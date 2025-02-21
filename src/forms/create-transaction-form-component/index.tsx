@@ -10,7 +10,7 @@ export const CreateTransactionForm = () => {
     const statusBar = useSafeAreaInsets().top
     const [income, setIncome] = useState(true)
     const [expense, setExpense] = useState(false)
-    const [date, setDate] = useState(new Date().toLocaleDateString('pt-BR'))
+    const date = new Date().toLocaleDateString('pt-BR')
 
     return (
         <View style={{...styles.transactionContainer, paddingTop: statusBar}}>
@@ -18,7 +18,7 @@ export const CreateTransactionForm = () => {
             <View style={styles.contentContainer}>
 
                 <View style={styles.leftContainer}>
-                    <InputComponent keyboardType={'numeric'} label={'Valor'} style={{...styles.inputStyle, width: '70%'}}/>
+                    <InputComponent keyboardType={'numeric'} label={'Valor'} style={{...styles.inputStyle, width: RFValue(100)}}/>
 
                     <View style={{flexDirection: 'row', gap: 10}}>
                         <ButtonComponent
@@ -80,16 +80,16 @@ const styles = StyleSheet.create({
     registerButton: {
         elevation: 10,
         backgroundColor: 'rgba(235,235,235,1)',
-        width: '70%'
+        width: RFValue(100)
     },
     viewButtonOn: {
         elevation: 10,
-        width: '50%',
+        width: RFValue(70),
         height:RFValue(24),
         backgroundColor: 'rgba(235,235,235,1)'
     },
     viewButtonOff: {
-        width: '50%',
+        width: RFValue(70),
         height:RFValue(24),
         backgroundColor: 'transparent'
     },

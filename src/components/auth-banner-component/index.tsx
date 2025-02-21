@@ -12,9 +12,9 @@ export const AuthBannerComponent = () => {
             style={styles.banner}
         >
             <View style={styles.circle}>
-                <Text allowFontScaling={false} style={styles.fBox}>F</Text>
+                <Text style={styles.fBox}>F</Text>
             </View>
-            <Text allowFontScaling={false} style={styles.text}>Financeiro</Text>
+            <Text style={styles.text}>Financeiro</Text>
         </View>
     )
 }

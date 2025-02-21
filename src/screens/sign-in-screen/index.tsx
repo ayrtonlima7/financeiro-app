@@ -32,7 +32,7 @@ export const SignInScreen = () => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.form}>
-                <Text allowFontScaling={false} style={styles.label}>E-mail</Text>
+                <Text style={styles.label}>E-mail</Text>
                 <InputComponent
                     type={"email"}
                     value={user.email}
@@ -42,7 +42,7 @@ export const SignInScreen = () => {
                     label={"Digite seu e-mail"}
                 />
 
-                <Text allowFontScaling={false} style={styles.label}>Senha</Text>
+                <Text style={styles.label}>Senha</Text>
                 <PasswordInputComponent
                     value={user.password}
                     user={user}
@@ -58,7 +58,7 @@ export const SignInScreen = () => {
                         viewStyle={styles.signButton}
                     />
 
-                    <Text allowFontScaling={false} style={styles.signUpText}>Ainda não possui conta?</Text>
+                    <Text style={styles.signUpText}>Ainda não possui conta?</Text>
 
                     <ButtonComponent
                         onPress={() => navigation.navigate("SignUp")}

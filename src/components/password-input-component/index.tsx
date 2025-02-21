@@ -27,7 +27,6 @@ export const PasswordInputComponent = ({label, style, value, setUser, user}: Pas
                 numberOfLines={1}
                 value={value}
                 onChangeText={handleChange}
-                allowFontScaling={false}
                 autoCapitalize='none'
                 secureTextEntry={hidePassword}
                 placeholder={label}

@@ -13,7 +13,7 @@ export const ButtonComponent = ({title, onPress, viewStyle, textStyle, hitSlop}:
 
     return (
         <TouchableOpacity activeOpacity={0.1} hitSlop={hitSlop} style={[styles.container, viewStyle]} onPress={onPress}>
-            <Text allowFontScaling={false} style={[styles.text, textStyle]}>{title}</Text>
+            <Text style={[styles.text, textStyle]}>{title}</Text>
         </TouchableOpacity>
     )
 }

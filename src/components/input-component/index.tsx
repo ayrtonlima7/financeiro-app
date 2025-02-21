@@ -50,7 +50,6 @@ export const InputComponent = ({
     return (
         <TextInput
             keyboardType={keyboardType}
-            allowFontScaling={false}
             value={value}
             onChangeText={handleChange}
             autoCapitalize={autoCapitalize}
