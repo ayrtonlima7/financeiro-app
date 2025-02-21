@@ -10,6 +10,7 @@ export const CreateTransactionForm = () => {
     const statusBar = useSafeAreaInsets().top
     const [income, setIncome] = useState(true)
     const [expense, setExpense] = useState(false)
+    const [date, setDate] = useState(new Date().toLocaleDateString('pt-BR'))
 
     return (
         <View style={{...styles.transactionContainer, paddingTop: statusBar}}>
@@ -17,13 +18,14 @@ export const CreateTransactionForm = () => {
             <View style={styles.contentContainer}>
 
                 <View style={styles.leftContainer}>
-                    <InputComponent keyboardType={'numeric'} label={'Valor'} style={styles.inputStyle}/>
+                    <InputComponent keyboardType={'numeric'} label={'Valor'} style={{...styles.inputStyle, width: '70%'}}/>
 
                     <View style={{flexDirection: 'row', gap: 10}}>
                         <ButtonComponent
                             title={'Receita'}
                             viewStyle={income ? styles.viewButtonOn : styles.viewButtonOff}
                             textStyle={income ? styles.textButtonOn : styles.textButtonOff}
+                            hitSlop={20}
                             onPress={() => {
                                 setIncome(true)
                                 setExpense(false)
@@ -33,6 +35,7 @@ export const CreateTransactionForm = () => {
                             title={'Despesa'}
                             viewStyle={expense ? styles.viewButtonOn : styles.viewButtonOff}
                             textStyle={expense ? styles.textButtonOn : styles.textButtonOff}
+                            hitSlop={20}
                             onPress={() => {
                                 setIncome(false)
                                 setExpense(true)
@@ -42,8 +45,13 @@ export const CreateTransactionForm = () => {
 
                 </View>
                 <View style={styles.rightContainer}>
-                    <InputComponent keyboardType={'numeric'} label={'Data'}
-                                    style={{...styles.inputStyle, width: '50%'}}/>
+                    <ButtonComponent
+                        textStyle={styles.textButtonOff}
+                        viewStyle={{...styles.viewButtonOff, justifyContent: 'flex-start'}}
+                        hitSlop={20}
+                        onPress={() => {}}
+                        title={date}
+                    />
 
                     <ButtonComponent viewStyle={styles.registerButton} textStyle={{color: '#e75100'}}
                                      title={'Registrar'}/>
@@ -77,10 +85,12 @@ const styles = StyleSheet.create({
     viewButtonOn: {
         elevation: 10,
         width: '50%',
+        height:RFValue(24),
         backgroundColor: 'rgba(235,235,235,1)'
     },
     viewButtonOff: {
         width: '50%',
+        height:RFValue(24),
         backgroundColor: 'transparent'
     },
     textButtonOn: {
@@ -89,7 +99,7 @@ const styles = StyleSheet.create({
     textButtonOff: {
         color: 'rgba(235,235,235,1)'
     },
-    leftContainer : {
+    leftContainer: {
         flex: 1,
         justifyContent: 'space-between'
     },

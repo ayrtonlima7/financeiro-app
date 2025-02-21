@@ -6,6 +6,7 @@ interface InputComponentProps {
     placeholderStyle?: string
     autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters'
     value?: string
+    setValue?: any
     setUser?: any
     user?: any
     type?: string
@@ -13,6 +14,7 @@ interface InputComponentProps {
     setTransaction?: any
     style?: ViewStyle
     keyboardType?: 'default' | 'number-pad' | 'decimal-pad' | 'numeric' | 'email-address' | 'phone-pad'
+    textAlign?: 'center' | 'left' | 'right'
 }
 
 export const InputComponent = ({
@@ -26,8 +28,10 @@ export const InputComponent = ({
                                    transaction,
                                    setTransaction,
                                    style,
-                                   keyboardType
+                                   keyboardType,
+                                   textAlign,
                                }: InputComponentProps) => {
+
     const handleChange = (text: string) => {
         if (type === 'email') {
             return setUser({...user, email: text})
@@ -50,6 +54,7 @@ export const InputComponent = ({
             value={value}
             onChangeText={handleChange}
             autoCapitalize={autoCapitalize}
+            textAlign={textAlign}
             numberOfLines={1}
             placeholder={label}
             placeholderTextColor={placeholderStyle}

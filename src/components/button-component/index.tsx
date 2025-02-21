@@ -6,12 +6,13 @@ interface ButtonComponentProps {
     onPress?: () => void
     viewStyle?: ViewStyle
     textStyle?: TextStyle
+    hitSlop?: number
 }
 
-export const ButtonComponent = ({title, onPress, viewStyle, textStyle}: ButtonComponentProps) => {
+export const ButtonComponent = ({title, onPress, viewStyle, textStyle, hitSlop}: ButtonComponentProps) => {
 
     return (
-        <TouchableOpacity style={[styles.container, viewStyle]} onPress={onPress}>
+        <TouchableOpacity activeOpacity={0.1} hitSlop={hitSlop} style={[styles.container, viewStyle]} onPress={onPress}>
             <Text allowFontScaling={false} style={[styles.text, textStyle]}>{title}</Text>
         </TouchableOpacity>
     )
