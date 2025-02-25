@@ -1,21 +1,20 @@
 import {StyleSheet, Text, View} from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 import {RFValue} from "react-native-responsive-fontsize";
-
-
 
 export const AuthBannerComponent = () => {
     return (
-        <View
-            // colors={['#c94700', '#e75100', '#ff610b', '#ff6e1f', '#ff7c35']}
-            // start={{x: 0, y: 0}}
-            // end={{x: 1, y: 1}}
+        <LinearGradient
+            colors={['#c94700', '#e75100', '#ff610b', '#ff6e1f', '#ff7c35']}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 1}}
             style={styles.banner}
         >
             <View style={styles.circle}>
                 <Text style={styles.fBox}>F</Text>
             </View>
             <Text style={styles.text}>Financeiro</Text>
-        </View>
+        </LinearGradient>
     )
 }
 

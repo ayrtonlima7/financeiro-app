@@ -21,7 +21,7 @@ Text.defaultProps.allowFontScaling = false;
 // TextInput.defaultProps.maxFontSizeMultiplier = 1.1
 
 export default function Initialize() {
-    const [logged, setLogged] = useState(true)
+    const [logged, setLogged] = useState(false)
     const [transaction, setTransaction] = useState(TransactionInitialState)
 
     return (

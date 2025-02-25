@@ -22,6 +22,7 @@ export const PasswordInputComponent = ({label, style, value, setUser, user}: Pas
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
+            height: RFValue(28),
         }, style]}>
             <TextInput
                 numberOfLines={1}
