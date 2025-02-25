@@ -18,7 +18,8 @@ export const CreateTransactionForm = () => {
             <View style={styles.contentContainer}>
 
                 <View style={styles.leftContainer}>
-                    <InputComponent keyboardType={'numeric'} label={'Valor'} style={{...styles.inputStyle, width: RFValue(100)}}/>
+                    <InputComponent keyboardType={'numeric'} label={'Valor'}
+                                    style={{...styles.inputStyle, width: RFValue(100)}}/>
 
                     <View style={{flexDirection: 'row', gap: 10}}>
                         <ButtonComponent
@@ -47,9 +48,10 @@ export const CreateTransactionForm = () => {
                 <View style={styles.rightContainer}>
                     <ButtonComponent
                         textStyle={styles.textButtonOff}
-                        viewStyle={{...styles.viewButtonOff, justifyContent: 'flex-start'}}
+                        viewStyle={{...styles.viewButtonOff, width: 'auto'}}
                         hitSlop={20}
-                        onPress={() => {}}
+                        onPress={() => {
+                        }}
                         title={date}
                     />
 
